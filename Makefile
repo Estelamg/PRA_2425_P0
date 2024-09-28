@@ -1,17 +1,17 @@
+all: moverobjeto
+
 brazo.o: brazo.cpp brazo.h
 	g++ -c brazo.cpp
 
 moverobjeto.o: moverobjeto.cpp brazo.h
 	g++ -c moverobjeto.cpp
 
-MoverObjeto: moverobjeto.o brazo.o
-	g++ -o MoverObjeto moverobjeto.o brazo.o
-
-all: MoverObjeto
+moverobjeto: moverobjeto.o brazo.o
+	g++ -o moverobjeto moverobjeto.o brazo.o
 
 clean:
-	rm -f *.o MoverObjeto
+	rm -f *.o moverobjeto
 
 test: all
-	./MoverObjeto
+	./moverobjeto
 
